@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "express": "^4.18.1",
+    "mongoose": "^6.6.1",
+    "pug": "^3.0.2"
+  },
+  "name": "ticket-site",
+  "description": "��#\u0000 \u0000t\u0000i\u0000c\u0000k\u0000e\u0000t\u0000-\u0000s\u0000i\u0000t\u0000e\u0000\r\u0000 \u0000",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YonatanBalassiano/ticket-site.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YonatanBalassiano/ticket-site/issues"
+  },
+  "homepage": "https://github.com/YonatanBalassiano/ticket-site#readme"
+}

@@ -2,14 +2,12 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const session = require("express-session");
 
-
 const app = express();
-
 
 //database connection
 const mongoose = require("mongoose");
 const { homedir } = require("os");
-mongoose.connect("mongodb://localhost:27017/FacebookCloneDB", {useNewUrlParser: true});
+mongoose.connect("mongodb://localhost:27017/TicketOrderSite-DB", {useNewUrlParser: true});
 
 
 //initialize 
@@ -24,8 +22,7 @@ app.use(session({
 }))
 
 
-
 //port listening
-app.listen ("3005", function(){
-    console.log("listen on port 3005");
+app.listen ("3006", function(){
+    console.log("listen on port 3006");
 })
