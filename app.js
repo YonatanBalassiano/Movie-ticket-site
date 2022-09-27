@@ -26,3 +26,23 @@ app.use(session({
 app.listen ("3006", function(){
     console.log("listen on port 3006");
 })
+
+//set routes
+const MovieRoute = require("./routes/MovieRoute");
+const movieAPI = require("./routes/api/MovieAPIRoute");
+const TmdbAPI = require("./routes/api/TmdbAPIRoute");
+
+
+
+app.use("/movies",MovieRoute);
+app.use("/api/movies", movieAPI);
+app.use("/api/TMDB", TmdbAPI);
+
+
+
+
+
+
+app.get("/", (req,res) => {
+    res.render("home")
+})

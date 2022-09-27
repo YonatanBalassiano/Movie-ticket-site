@@ -1,0 +1,18 @@
+
+mixin modalCreate()
+    #movieModal.modal.fade.bd-example-modal-lg(tabindex='-1' role='dialog' aria-labelledby='movieModalLabel' aria-hidden='true')
+        .modal-dialog.modal-lg(role='document')
+            .modal-content
+                //- .modal-header
+                    //- h5#movieModalLabel.modal-title Movie 
+                    //- button.close(type='button' data-dismiss='modal' aria-label='Close')
+                    //- span(aria-hidden='true') &times;
+                .modal-body
+                    #movieContainer
+                    
+                    
+                    .modal-buttom
+                        button.modalButton(type='button' data-dismiss='modal') Close
+                        .rights
+                            img(src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg", alt="")
+                        button#orderTicketButton.modalButton(type='button' data-dismiss='modal') Order TIckets

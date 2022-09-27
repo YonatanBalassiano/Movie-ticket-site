@@ -1,0 +1,51 @@
+extends layouts/mainLayout.pug    
+
+block content
+    .upperarousel
+        #carouselExampleIndicators.carousel.slide(data-ride='carousel')
+            ol.carousel-indicators
+                li.active(data-target='#carouselExampleIndicators' data-slide-to='0')
+                li(data-target='#carouselExampleIndicators' data-slide-to='1')
+                li(data-target='#carouselExampleIndicators' data-slide-to='2')
+            .carousel-inner
+                .carousel-item.active
+                    a(href='/')
+                        img.d-block.w-100(src='https://collider.com/wp-content/uploads/dark-knight-rises-movie-poster-banner-catwoman.jpg' alt='First slide')
+                    .carousel-caption.d-none.d-md-block
+                        h5 banner1
+                        p you know what is the best for you
+                .carousel-item
+                    a(href='/')
+                        img.d-block.w-100(src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRe9Y_YYIzaCUW2nFvMCrcdPE1edoAnJtLnlto1ltK53PJz88q2VSy97bteiiV6EncK6A&usqp=CAU' alt='Second slide')
+                    .carousel-caption.d-none.d-md-block
+                        h5 banner2
+                        p you know what is the best for you
+                .carousel-item
+                    a(href='/')
+                        img.d-block.w-100(src='https://collider.com/wp-content/uploads/dark-knight-rises-movie-poster-banner-1.jpg' alt='Third slide')
+                    .carousel-caption.d-none.d-md-block
+                        h5 banner3
+                        p you know what is the best for you
+            a.carousel-control-prev(href='#carouselExampleIndicators' role='button' data-slide='prev')
+                span.carousel-control-prev-icon(aria-hidden='true')
+                span.sr-only Previous
+            a.carousel-control-next(href='#carouselExampleIndicators' role='button' data-slide='next')
+                span.carousel-control-next-icon(aria-hidden='true')
+                span.sr-only Next
+    .mb-4
+    .moviesContainer
+
+        
+
+
+    .album.py-5.bg-light
+        .container
+            .row.row-cols-1.row-cols-sm-2.row-cols-md-3.g-1
+
+
+    +modalCreate()
+
+
+
+block script
+    script(src="/js/home.js")

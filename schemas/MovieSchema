@@ -1,0 +1,27 @@
+const mongoose = require("mongoose");
+const { serializeInteger } = require("whatwg-url");
+const Schema = mongoose.Schema
+
+const movieSchema = new Schema({
+    name:{
+        type:String
+    },
+    about:{
+        type:String
+    },
+    time:{
+        type:String
+    },
+    seats:[{
+       number: Number,
+       person: String
+    }],
+    TMDB_id: Number,
+    cover: {
+        type: String,
+        default:"/images/coverImage.jpg"
+    }
+
+});
+
+module.exports = mongoose.model("Movie",movieSchema );

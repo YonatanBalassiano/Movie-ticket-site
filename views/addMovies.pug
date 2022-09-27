@@ -1,0 +1,29 @@
+extends layouts/mainLayout.pug    
+
+block content
+    .mainContainer
+        form.movie-form(action ="/addmovie" method="post")
+            .titleContainer
+                h5 New movie
+                p.errorMessage #{errorMessage}
+            .formContainer
+                .upperTitle
+                    span title 
+                    span time
+                .upperContainer
+                    input.form-control(name="movieName" type="text" placeholder='Movie name')
+                    .space
+                    input.form-control#timeChoose(type ='time' name='movieTime' min='09:00' max='19:00')
+                .mb-3
+                span about
+                textarea.form-control(name="movieAbout", cols="30", rows="10" placeholder="About") 
+                .mb-3
+                span Upload Movie Cover
+                input.form-control(name="movieImage" type="text" placeholder='Movie cover Url')
+                input.btn.btn-primary.btn-lg.btn-block.mt-3(type="submit", value="submit")
+
+        .footerContainer
+            .mb-3
+            p.pt-3.text-center
+                b Made and developed
+                |  by Yonatan Balassiano

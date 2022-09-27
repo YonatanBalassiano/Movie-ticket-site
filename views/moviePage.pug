@@ -1,0 +1,43 @@
+extends layouts/mainLayout.pug    
+
+block content
+    script.   
+      var movieId = '!{movie.TMDB_id}';
+      var seatsSold = '!{movie.seats}';
+    
+    .mainContainer#mainContainer
+        .headContainer 
+            .infoContainer 
+            .timeContainer 
+                h2 Playing At: 
+                .mb-5
+                h2 
+                    b !{movie.time}
+        hr
+        .seatSelectContainer      
+            .seatExampleContainer   
+                ul.example
+                    li  
+                        .seat
+                        small Available
+                    li  
+                        .seat.selected
+                        small Selected
+                    li  
+                        .seat.sold
+                        small Sold
+            .screen
+            .seatsContainer
+                
+
+
+
+
+
+
+
+
+
+
+block script
+    script(src="/js/moviePage.js")
