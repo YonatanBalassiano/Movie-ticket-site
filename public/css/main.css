@@ -317,7 +317,7 @@ transition: 0.4s ease;
     border:none
  }
 
- .closeButton:hover{
+ .modalButton:hover{
      background: #19cebc;
   }
 
@@ -408,10 +408,10 @@ hr{
 }
 
 .screen {
-    padding-top: 15px;
+    padding: 10px 0px;
     margin: auto;
     width: 60%;
-    border-top: 70px solid rgb(214, 213, 213);
+    border-top: 65px solid rgb(214, 213, 213);
 	border-left: 25px solid transparent;
 	border-right: 25px solid transparent;
 
@@ -444,6 +444,35 @@ hr{
     transform: scale(1.2);
   }
 
+.footer{
+    padding-top: 15px;
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    margin: auto;
+    justify-content: space-between;
+    color:var(--grayText)
+}
 
+.numOfSeatsChosen{
+    font-weight: 500;
+}
+
+.seatSelectContainer.hidden{
+    display: none;
+}
+
+.placeOrderContainer.hidden{
+    display: none;
+}
+
+.placeOrderContainer{
+    width: 80%;
+    margin: auto;
+}
+
+h4,h1{
+    color: var(--grayText)!important;
+}
 
 

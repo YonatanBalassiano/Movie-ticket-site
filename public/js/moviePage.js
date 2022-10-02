@@ -1,3 +1,5 @@
+var seats = [];
+
 $(document).ready(function(){
     $.get(`/api/TMDB/${movieId}`,(movieInfo)=>{
         addInfo(movieInfo)
@@ -41,5 +43,26 @@ $(".seatsContainer").click((seat) => {
       !seat.target.classList.contains("sold")
     ) {
         seat.target.classList.toggle("selected");
+
+        let isChosen = seat.target.classList.contains("selected")
+        if (isChosen){
+            seats.push(seat.target.id)
+        }else{
+            seats.splice(seats.indexOf(seat.target.id),1)
+        }
+
+        let html = seats.length==0 ? "Please choose seats" : `You choose ${seats.length} seat`
+        if (seats.length >1){html+="s"}
+        $(".numOfSeatsChosen").html(html)
+
     }
+
+
   });
+
+  $(document).on("click","#placeOrderButton", (event)=>{
+    $(".seatSelectContainer").addClass("hidden")
+    $(".placeOrderContainer").removeClass("hidden")
+
+    
+})

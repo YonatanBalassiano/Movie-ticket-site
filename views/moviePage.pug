@@ -4,6 +4,7 @@ block content
     script.   
       var movieId = '!{movie.TMDB_id}';
       var seatsSold = '!{movie.seats}';
+      var seatNumber = 4
     
     .mainContainer#mainContainer
         .headContainer 
@@ -14,7 +15,7 @@ block content
                 h2 
                     b !{movie.time}
         hr
-        .seatSelectContainer      
+        .seatSelectContainer
             .seatExampleContainer   
                 ul.example
                     li  
@@ -28,6 +29,13 @@ block content
                         small Sold
             .screen
             .seatsContainer
+            .footer
+                p.numOfSeatsChosen please choose seats
+                button#placeOrderButton.modalButton Place order
+        
+        .placeOrderContainer.hidden
+            +placeOrderTemplate()
+
                 
 
 
