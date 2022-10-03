@@ -2,7 +2,7 @@ extends layouts/mainLayout.pug
 
 block content
     .mainContainer
-        form.movie-form(action ="/addmovie" method="post")
+        form.movie-form(action ="../movies" method="post")
             .titleContainer
                 h5 New movie
                 p.errorMessage #{errorMessage}

@@ -3,8 +3,7 @@ extends layouts/mainLayout.pug
 block content
     script.   
       var movieId = '!{movie.TMDB_id}';
-      var seatsSold = '!{movie.seats}';
-      var seatNumber = 4
+      var seatsNumbers = new Array(!{seats});
     
     .mainContainer#mainContainer
         .headContainer 
@@ -31,10 +30,11 @@ block content
             .seatsContainer
             .footer
                 p.numOfSeatsChosen please choose seats
+                p.errorMessage 
                 button#placeOrderButton.modalButton Place order
         
         .placeOrderContainer.hidden
-            +placeOrderTemplate()
+            +placeOrderTemplate(seats)
 
                 
 

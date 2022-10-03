@@ -35,9 +35,7 @@ const TmdbAPI = require("./routes/api/TmdbAPIRoute");
 
 
 app.use("/movies",MovieRoute);
-app.use("/api/movies", movieAPI);
 app.use("/api/TMDB", TmdbAPI);
-
 
 
 
@@ -45,4 +43,8 @@ app.use("/api/TMDB", TmdbAPI);
 
 app.get("/", (req,res) => {
     res.render("home")
+})
+
+app.get("/addmovie", (req,res) => {
+    res.render("addmovies")
 })

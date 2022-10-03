@@ -321,6 +321,7 @@ transition: 0.4s ease;
      background: #19cebc;
   }
 
+
   /* movie Page */
 
 .headContainer{
@@ -334,7 +335,10 @@ transition: 0.4s ease;
     width: 70%;
 }
 
-
+.titleContainer{
+    color: var(--grayText);
+    display: flex;
+}
 .aboutContainer{
     padding-left: 10px;
     color: var(--grayText);
@@ -442,7 +446,7 @@ hr{
 .seat:not(.sold):hover {
     cursor: pointer;
     transform: scale(1.2);
-  }
+}
 
 .footer{
     padding-top: 15px;
@@ -451,7 +455,8 @@ hr{
     width: 60%;
     margin: auto;
     justify-content: space-between;
-    color:var(--grayText)
+    justify-content: middle;
+    color:var(--grayText);
 }
 
 .numOfSeatsChosen{
@@ -471,8 +476,54 @@ hr{
     margin: auto;
 }
 
-h4,h1{
-    color: var(--grayText)!important;
+
+/* billing section */
+.placeOrderContainer h4,label,span{
+    color:var(--grayText) !important;
+
+}
+.paymentSelect{
+    display: flex;
+    flex-direction: row;
+}
+
+.promoCode{
+    width: 100%;
+    padding: none;
+}
+
+.rightDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: none !important;
+}
+
+.cartButtonContainer{
+    display: flex;
+    justify-content: right;
+}
+.seatSelectButton{
+    height: 48px;
+    width: 50%;
+    align-items: right;
+    background-color: #005C53;opacity:0.8;
+    color:white;
+    border-radius: 7px;
+    border:none
+}
+
+.seatSelectButton:hover{
+    background: #19cebc;
+}
+
+.placeOrderButton{
+    background-color:#005C53;opacity:0.8 !important;
+    border:none
 }
 
 
+.placeOrderButton:hover{
+    background: #19cebc;
+
+}

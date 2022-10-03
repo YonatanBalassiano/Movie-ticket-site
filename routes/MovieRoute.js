@@ -14,7 +14,50 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 
 router.get("/" ,function(req,res){
-    res.render("addMovies");
+    Movie.find()
+    .then((movies)=>{
+        res.status(200).send(movies)
+    })
+    .catch(err=>console.log(err))
+})
+
+router.get("/id/:id" ,function(req,res){
+    Movie.findById(req.params.id)
+    .then((movie)=>{
+        res.status(200).send(movie)
+    })
+    .catch(err=>console.log(err))
+})
+
+
+router.get("/:name",function(req,res){
+    let name = req.params.name
+    name = name.replaceAll('-', ' ');
+    Movie.findOne({name:name})
+    .then((movie)=>{
+        let seats =[]
+        movie.seats.forEach((seat)=>{
+            seats.push(seat.number)
+        })
+        res.render("moviePage",{movie:movie,seats:seats})
+    })
+    .catch(err=>console.log(err))
+    
+})
+
+router.post("/:name", async function (req,res){
+    let name = req.params.name
+    let userName = req.body.firstName +" "+ req.body.lastName;
+    name = name.replaceAll('-', ' ');
+
+    let seats = req.body.seats
+    seats = seats.split(",")
+
+    Movie.findOneAndUpdate({name:name},{$push :{seats:{number:seats,person:userName} }})
+    .then((movie)=>{
+        return res.status(201).redirect("/")
+    })
+    .catch(err=>console.log(err))
 })
 
 router.post("/", (req, res) =>{
@@ -42,21 +85,9 @@ router.post("/", (req, res) =>{
         res.status(200).render("addMovies", payload);
     }
 
-    
-    
-
 })
 
-router.get("/:name",function(req,res){
-    let name = req.params.name
-    name = name.replaceAll('-', ' ');
-    Movie.findOne({name:name})
-    .then((movie)=>{
-        
-        res.render("moviePage",{movie:movie})
-    })
-    .catch(err=>console.log(err))
-    
-})
+
+
 
 module.exports = router;

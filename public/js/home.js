@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $.get("/api/movies",(movies)=>{
+    $.get("/movies",(movies)=>{
         outputCards(movies , $(".moviesContainer"));
     })
 
@@ -8,7 +8,6 @@ $(document).ready(function(){
 })
 
 function outputCards (movies , container){
-    console.log("2")
     movies.forEach(movie => {
         html = movieCardHtml(movie)
         container.append(html)
@@ -24,7 +23,7 @@ function movieCardHtml(movie){
         <p>${about}</p>
       </div>
     </div><span>${movie.name}</span>
-    <p> shown at : ${movie.time} | ${80 - movie.seats.length} seats left </p>
+    <p> shown at : ${movie.time} | ${160 - movie.seats.length*2} seats left </p>
   </div>`
 }
 
@@ -33,7 +32,7 @@ $("#movieModal").on("show.bs.modal",(event)=>{
     let divID = getCardId(div);
     let movieName = "";
 
-    $.get(`/api/movies/${divID}`,(movie)=>{
+    $.get(`/movies/id/${divID}`,(movie)=>{
         movieName = movie.name;
         $.get(`/api/TMDB/${movie.TMDB_id}/videos`,(movieVid)=>{
             addTrailetToMOdal(movieVid.results[0].key)
@@ -45,7 +44,6 @@ $("#movieModal").on("show.bs.modal",(event)=>{
         })
 
         $.get(`/api/TMDB/${movie.TMDB_id}/credits`,(cast)=>{
-            console.log(cast)
             $("#movieCastContainer").append(addCastHTML(cast.cast))
         })
 

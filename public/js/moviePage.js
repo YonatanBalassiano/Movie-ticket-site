@@ -1,4 +1,4 @@
-var seats = [];
+var seats = new Array();
 
 $(document).ready(function(){
     $.get(`/api/TMDB/${movieId}`,(movieInfo)=>{
@@ -12,9 +12,8 @@ $(document).ready(function(){
             $(`.row.${i}`).append(`<div class="seat" id="${i*16+j}"></div>`)
         }
     }
-    
-    seatsSold.forEach((seat)=>{
-        document.getElementById('seat').classList.add("sold");
+    seatsNumbers.forEach((seat)=>{
+        document.getElementById(seat).classList.add("sold");
     })
 
 })
@@ -33,7 +32,6 @@ function addGenres(genres){
     genres.forEach(genre=>{
         html = html + `<div class="genreContainer">${genre.name}</div>`
     })
-
     $(".genresContainer").html(html)
 }
 
@@ -60,9 +58,55 @@ $(".seatsContainer").click((seat) => {
 
   });
 
-  $(document).on("click","#placeOrderButton", (event)=>{
-    $(".seatSelectContainer").addClass("hidden")
-    $(".placeOrderContainer").removeClass("hidden")
+$(document).on("click","#placeOrderButton", (event)=>{
+    if(seats.length==0){
+        $(".errorMessage").html("please select seats")
+    }
+    else{
+        $(".errorMessage").html("")
+        $(".seatSelectContainer").addClass("hidden")
+        $(".placeOrderContainer").removeClass("hidden")
+        updateBillingForm()
+    }
+})
 
-    
+$(document).on("click",".seatSelectButton", (event)=>{
+    $(".seatSelectContainer").removeClass("hidden")
+    $(".placeOrderContainer").addClass("hidden")
+
+    updateBillingForm()
+})
+
+function updateBillingForm(){
+    document.getElementById("numOfSeats").innerText=`${seats.length}`
+    $(".cartList").html("")
+    seats.forEach((seat)=>{
+        let html = cartListItemHtml(seat)
+        $(".cartList").append(html)
+    })
+
+    html = cartListSum()
+    $(".cartList").append(html)
+
+   
+}
+
+function cartListItemHtml(seat){
+    let row = seat/16 == Math.floor(seat/16) ? seat/16 : Math.floor(seat/16) + 1;
+    let seatNum = seat%16 == 0 ? 16 : seat%16;
+    return `<li class="list-group-item d-flex justify-content-between lh-condensed">
+    <div>
+      <h6 class="my-0">Movie ticket</h6><small class="text-muted">row ${row} seat ${seatNum}</small>
+    </div><span class="text-muted">$12</span>
+  </li>`
+}
+
+function cartListSum(){
+    let sum = seats.length*12
+    return `<li class="list-group-item d-flex justify-content-between"><span>Total (USD)</span><strong>$${sum}</strong></li>`
+}
+
+$(document).on("click",".placeOrderButton",(event)=>{
+    document.getElementById('hiddenField').value = seats;
+    document.getElementById("orderForm").submit();
 })
