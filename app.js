@@ -29,7 +29,6 @@ app.listen ("3006", function(){
 
 //set routes
 const MovieRoute = require("./routes/MovieRoute");
-const movieAPI = require("./routes/api/MovieAPIRoute");
 const TmdbAPI = require("./routes/api/TmdbAPIRoute");
 
 
