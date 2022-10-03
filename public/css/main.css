@@ -5,16 +5,13 @@
     --grayText: #BFBFBF;
     --background-color:#343A40;
 }
+
 body, html{
     width: 100%;
 	height: 100%;
-	/* display: flex;
-    flex-direction: column; */
 	align-items: center;
 	justify-content: center;
     background-color: var(--background-color);
-    
-
 }
 
 h5{
@@ -39,7 +36,7 @@ span{
 }
 
 .carousel-inner{
-height: 100%;
+    height: 100%;
 }
 
 .carousel-item{
@@ -50,10 +47,10 @@ height: 100%;
     height: 100%;
 }
 
-
 .carousel-caption{
     padding-bottom: 5px !important;
 }
+
 
 /* add movie page  */
 .titleContainer{
@@ -71,6 +68,7 @@ height: 100%;
     font-weight: 300;
     color: red;
 }
+
 .upperTitle{
     display: flex;
     justify-content: space-between;
@@ -83,7 +81,6 @@ height: 100%;
     flex-direction: column;
 }
 
-
 .upperContainer{
     display: flex;
     flex-direction: row;
@@ -92,7 +89,6 @@ height: 100%;
 .space{
     width: 50px;
 }
-
 
 #timeChoose{
 width: 150px;
@@ -103,16 +99,13 @@ width: 150px;
 }
 
 
-
 /* upperCarousel */
 .upperarousel{
     box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5); 
 }
 
 
-
 /* movies cards */
-
 .moviesContainer{
     margin: auto;
     width: 90%;
@@ -178,25 +171,25 @@ width: 150px;
 }
 
 .card .info h1 {
-margin: 0px; 
+    margin: 0px; 
 }
 
 .card .info p {
-letter-spacing: 1px;
-font-size: 15px;
-margin-top: 8px; 
+    letter-spacing: 1px;
+    font-size: 15px;
+    margin-top: 8px; 
 }
 
 .card .info button {
-padding: 0.6rem;
-outline: none;
-border: none;
-border-radius: 3px;
-background: white;
-color: black;
-font-weight: bold;
-cursor: pointer;
-transition: 0.4s ease; 
+    padding: 0.6rem;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    background: white;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.4s ease; 
 }
 
 .card .info button:hover {
@@ -212,6 +205,7 @@ transition: 0.4s ease;
  .movieCard p{
     color : var(--grayText)
  }
+
 
  /* modal */
 
@@ -235,6 +229,7 @@ transition: 0.4s ease;
     flex-direction: row;
     justify-content: space-between;
  }
+
  .genresContainer{
     display: flex;
     flex-direction: row;
@@ -253,7 +248,6 @@ transition: 0.4s ease;
     padding-left: 10px;
     padding-top: 5px;
  }
-
 
  .genreContainer{
     padding:5px 10px;
@@ -290,7 +284,6 @@ transition: 0.4s ease;
     height: 120px;
     border-radius: 50%;
     border: var(--grayText) solid 2px;
-    
  }
 
  .modal-buttom{
@@ -319,7 +312,7 @@ transition: 0.4s ease;
 
  .modalButton:hover{
      background: #19cebc;
-  }
+}
 
 
   /* movie Page */
@@ -342,7 +335,6 @@ transition: 0.4s ease;
 .aboutContainer{
     padding-left: 10px;
     color: var(--grayText);
-
 }
 
 .timeContainer{
@@ -355,7 +347,6 @@ transition: 0.4s ease;
 hr{
     border: var(--grayText) 0.1px solid; opacity: 0.5;
     width: 80%;
-    
 }
 
 /* Seats select */
@@ -389,6 +380,7 @@ hr{
     justify-content: center;
     margin: 0 7px;
 }
+
 .example li small {
     margin-left: 2px;
 }
@@ -418,7 +410,6 @@ hr{
     border-top: 65px solid rgb(214, 213, 213);
 	border-left: 25px solid transparent;
 	border-right: 25px solid transparent;
-
 }
 
 .seatsContainer{
@@ -431,15 +422,14 @@ hr{
     flex-direction: column;
     justify-content: space-around;
     margin: auto;
-
 }
 
 
 .seat:nth-of-type(4) {
     margin-right: 18px;
-  }
+}
   
-  .seat:nth-last-of-type(4) {
+.seat:nth-last-of-type(4) {
     margin-left: 18px;
 }
 
@@ -503,6 +493,7 @@ hr{
     display: flex;
     justify-content: right;
 }
+
 .seatSelectButton{
     height: 48px;
     width: 50%;
@@ -522,8 +513,6 @@ hr{
     border:none
 }
 
-
 .placeOrderButton:hover{
     background: #19cebc;
-
 }
