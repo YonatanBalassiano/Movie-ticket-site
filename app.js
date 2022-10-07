@@ -32,12 +32,8 @@ const MovieRoute = require("./routes/MovieRoute");
 const TmdbAPI = require("./routes/api/TmdbAPIRoute");
 
 
-
 app.use("/movies",MovieRoute);
 app.use("/api/TMDB", TmdbAPI);
-
-
-
 
 
 app.get("/", (req,res) => {

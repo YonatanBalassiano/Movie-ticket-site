@@ -1,11 +1,33 @@
 $(document).ready(function(){
+    //load carusel photos
+
+    
+    
+    //load movies
     $.get("/movies",(movies)=>{
         outputCards(movies , $(".moviesContainer"));
+
+        for(let i = 0; i<5; i++){
+            let active = i==0 ? "active" : "";
+            $.get(`/api/TMDB/${movies[i].TMDB_id}`,(movieInfo)=>{
+                console.log(movieInfo)
+                $("#movieContainer").append(addToCarusel(movieInfo,active));
+            })
+        }
     })
 
 
-
 })
+
+function addToCarusel (movie,active){
+    let html = `<div class="carousel-item ${active}"><a href="/"><img class="d-block w-100" src="https://image.tmdb.org/t/p/original${movie.backdrop_path}" alt="First slide"/></a>
+    <div class="carousel-caption d-none d-md-block">
+      <h5>${movie.original_title}</h5>
+      <p>${movie.tagline}</p>
+    </div>
+  </div>`
+    $(".carousel-inner").append(html)
+}
 
 function outputCards (movies , container){
     movies.forEach(movie => {
@@ -36,7 +58,6 @@ $("#movieModal").on("show.bs.modal",(event)=>{
         movieName = movie.name;
         $.get(`/api/TMDB/${movie.TMDB_id}/videos`,(movieVid)=>{
             addTrailetToMOdal(movieVid.results[0].key)
-            
         })
 
         $.get(`/api/TMDB/${movie.TMDB_id}`,(movieInfo)=>{
@@ -53,7 +74,6 @@ $("#movieModal").on("show.bs.modal",(event)=>{
         movieName = movieName.replaceAll(' ', '-');
         movieName = movieName.replaceAll(':', '');
        location.href = `/movies/${movieName}`
-        
     })
 
 })

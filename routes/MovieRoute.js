@@ -29,7 +29,6 @@ router.get("/id/:id" ,function(req,res){
     .catch(err=>console.log(err))
 })
 
-
 router.get("/:name",function(req,res){
     let name = req.params.name
     name = name.replaceAll('-', ' ');
