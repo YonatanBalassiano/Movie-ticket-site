@@ -11,6 +11,7 @@ The site has only one main database that holds the basic information for a quick
 1.	Database that holds the movies and the status of the seats for each movie 
 2.	Use external API (TMDB API) for movie information
 3.	Almost no client work, only on the server side
+4.	Owner page only for insert new movies to the database 
 
 
 # Screen Shots
